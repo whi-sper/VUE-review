@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on事件绑定</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>v-on绑定事件</h1>
+<hr>
+<div id="app">
+    本场比赛得分：{{scores}}
+    <p>
+        <button @click="add">add</button>
+        <button v-on:click="subtract">subtract</button>
+    </p>
+</div>
+<script>
+    var app=new Vue({
+      el:'#app',
+      data:{
+        scores:0
+      },
+      methods:{
+        add:function () {
+          this.scores++;
+        },
+        subtract:function () {
+          this.scores--;
+        }
+      }
+    })
+</script>
+</body>
+</html>
