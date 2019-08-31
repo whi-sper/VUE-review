@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>条件渲染</h1>
+<hr>
+<div id="app">
+    <div v-if="isLogin">你好，欢迎登陆</div>
+    <div v-else>请登录！</div>
+    <div v-show="isPass">通过</div>
+</div>
+<script>
+    var app=new Vue({
+      el:'#app',
+      data:{
+        isLogin:false,
+        isPass:true
+      }
+    })
+    // 一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，
+    // 则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。
+</script>
+</body>
+</html>
