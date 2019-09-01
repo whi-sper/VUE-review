@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>v-bind</h1>
+<hr>
+<div id="app">
+    <!--绑定一个属性-->
+    <img v-bind:src="imgSrc" width="200px"/>
+    <hr>
+    <div :class="className">1、绑定Class</div>
+    <div :class="{classA:isOk}">2、绑定Class中的判断</div>
+    <div :class="[classA,classB]">3、数组绑定Class</div>
+    <div :class="isOk?classA:classB">4、三元运算符绑定Class</div>
+    <div :style="{color:red,fontSize:font}">5、绑定Style</div>
+    <div :style="styleObject">6、对象绑定Style</div>
+    <hr>
+    <div>
+        <input type="checkbox" id="isOk" v-model="isOk">
+        <label for="isOk">isOk={{isOk}}</label>
+    </div>
+</div>
+<style>
+    .classA{
+        color: lightseagreen;
+    }
+    .classB{
+        font-size: 150%;
+    }
+</style>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      imgSrc: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1485565726,42456529&fm=26&gp=0.jpg',
+      className:'classA',
+      isOk:'false',
+      classA:'classA',
+      classB:'classB',
+      red:'red',
+      fontSize:'20%',
+      styleObject:{
+        color:'white',
+        backgroundColor:'skyblue'
+      }
+    }
+  })
+</script>
+</body>
+</html>

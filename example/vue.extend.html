@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.extend</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue.extend 扩展实例构造器</h1>
+<hr>
+<author></author>
+<div id="author"></div>
+<script>
+  // extend创建的是一个组件构造器，而不是一个具体的组件实例
+    var authorURL=Vue.extend({
+      template:"<p><a :href='authorURL'>{{authorName}}</a></p>",
+      data:function () {
+        return{
+          authorName:'whisper',
+          authorURL:'http://www.baidu.com'
+        }
+      }
+    });
+    // 创建 authorURL 实例，并挂载到一个元素上。
+    new authorURL().$mount("author");
+    new authorURL().$mount("#author");
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.set</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue.set</h1>
+<hr>
+<div id="app">
+    {{count}}
+    <ul>
+        <li v-for="item in goods">{{item}}</li>
+    </ul>
+</div>
+<p><button onclick="add()">add</button></p>
+<script>
+    function add () {
+      // Vue.set(outData,'count',3)
+      // outData.count++;
+      app.goods[1]='fruit' //Vue 无法探测普通的新增属性
+      Vue.set(app.goods,1,'fruit')
+    }
+    var outData={
+      count:1,
+      goods:['milk','bread','meat']
+    }
+    var app=new Vue({
+      el:'#app',
+      data:outData
+    })
+</script>
+</body>
+</html>
