@@ -6484,7 +6484,7 @@
                 warn(
                   'The client-side rendered virtual DOM tree is not matching ' +
                   'server-rendered content. This is likely caused by incorrect ' +
-                  'HTML markup, for GlobalAPI nesting block-level elements inside ' +
+                  'HTML markup, for globalAPI nesting block-level elements inside ' +
                   '<p>, or missing <tbody>. Bailing hydration and performing ' +
                   'full client-side render.'
                 );
@@ -9123,7 +9123,7 @@
         warn(
           "class=\"" + staticClass + "\": " +
           'Interpolation inside attributes has been removed. ' +
-          'Use v-bind or the colon shorthand instead. For GlobalAPI, ' +
+          'Use v-bind or the colon shorthand instead. For globalAPI, ' +
           'instead of <div class="{{ val }}">, use <div :class="val">.',
           el.rawAttrsMap['class']
         );
@@ -9168,7 +9168,7 @@
           warn(
             "style=\"" + staticStyle + "\": " +
             'Interpolation inside attributes has been removed. ' +
-            'Use v-bind or the colon shorthand instead. For GlobalAPI, ' +
+            'Use v-bind or the colon shorthand instead. For globalAPI, ' +
             'instead of <div style="{{ val }}">, use <div :style="val">.',
             el.rawAttrsMap['style']
           );
@@ -10377,7 +10377,7 @@
             warn$2(
               name + "=\"" + value + "\": " +
               'Interpolation inside attributes has been removed. ' +
-              'Use v-bind or the colon shorthand instead. For GlobalAPI, ' +
+              'Use v-bind or the colon shorthand instead. For globalAPI, ' +
               'instead of <div id="{{ val }}">, use <div :id="val">.',
               list[i]
             );
@@ -11221,7 +11221,7 @@
     // by default scoped slots are considered "stable", this allows child
     // components with only scoped slots to skip forced updates from parent.
     // but in some cases we have to bail-out of this optimization
-    // for GlobalAPI if the slot contains dynamic names, has v-if or v-for on them...
+    // for globalAPI if the slot contains dynamic names, has v-if or v-for on them...
     var needsForceUpdate = el.for || Object.keys(slots).some(function (key) {
       var slot = slots[key];
       return (
