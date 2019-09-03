@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component-3</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>父子组件关系</h1>
+<hr>
+<div id="app">
+    <whisper></whisper>
+</div>
+
+<script>
+    var childComp={
+      template: `<p style="color:lightseagreen">我是子组件</p>`
+    }
+  var whisperObj={
+    template:`<div><p>我是父组件</p><childComp></childComp></div>`,
+    components: {
+      'childComp':childComp
+    }
+  }
+  app = new Vue({
+    el: '#app',
+    components: {
+      // 'whisper':{
+      //   template:`<div style="color:lightseagreen">我是组件</div>`
+      // }
+      'whisper': whisperObj
+    }
+  })
+</script>
+<script>
+
+</script>
+</body>
+</html>

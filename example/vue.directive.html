@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.directive</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>vue.directive 自定义指令</h1>
+<hr>
+<div id="app">
+    <div v-setcolor="color">{{num}}</div>
+    <p>
+        <button @click="add">add</button>
+    </p>
+    <p>
+        <button onclick="unbind()">解绑</button>
+    </p>
+</div>
+<script>
+  function unbind () {
+    app.$destroy();
+  }
+
+  // Vue.directive('setcolor',function (el,binding) {
+  //   console.log(el);
+  //   console.log(binding);
+  //   el.style="color:"+binding.value;
+  // });
+  // 使用钩子函数：
+  Vue.directive('setcolor', {
+    bind: function (el, binding) {
+      el.style = 'color:' + binding.value;
+    },
+    unbind: function (el) {
+      el.style = 'color:' + 'black';
+    }
+  })
+  var app = new Vue({
+    el: '#app',
+    data: {
+      num: 1,
+      color: 'pink'
+    },
+    methods: {
+      add: function () {
+        return this.num++
+      }
+    }
+  })
+</script>
+</body>
+</html>

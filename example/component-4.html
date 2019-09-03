@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component-4</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>组件标签</h1>
+<hr>
+<div id="app">
+    <component v-bind:is="obj"></component>
+    <button @click="change">changeComponent</button>
+</div>
+<script>
+  var componentA = {
+    template: `<div style="color: lightseagreen">我是组件A</div>`
+  }
+  var componentB = {
+    template: `<div style="color: lightcoral">我是组件B</div>`
+  }
+  var componentC = {
+    template: `<div style="color: lightskyblue">我是组件C</div>`
+  }
+  var app = new Vue({
+    el: '#app',
+    data: {
+      obj: 'componentA'
+    },
+    components: {
+      "componentA": componentA,
+      "componentB": componentB,
+      "componentC": componentC
+    },
+    methods: {
+      change: function () {
+        if (this.obj === 'componentA') {
+          this.obj = 'componentB';
+        }else if (this.obj === 'componentB') {
+          this.obj = 'componentC';
+        }else {
+          this.obj = 'componentA';
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

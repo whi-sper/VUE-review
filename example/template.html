@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>template三种写法</h1>
+<hr>
+<div id="app">
+    {{message}}
+</div>
+<!--2、在标签中构建-->
+<template id="ht">
+    <h2 style="color: deeppink">我是标签模板</h2>
+</template>
+<!--3、script标签模板-->
+<script type="x-template" id="sc">
+    <h2 style="color: cornflowerblue">我是script标签模板</h2>
+</script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello world!'
+    },
+    // template: '#ht'
+    template: '#sc'
+    // 1、在选项中构建
+    //template:`<h2 style="color:red">我是选项模板</h2>`
+  })
+</script>
+</body>
+</html>
