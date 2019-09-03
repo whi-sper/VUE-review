@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mixins</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Mixins 混入</h1>
+<hr>
+<div id="app">
+    {{num}}
+    <p><button @click="add">add</button></p>
+</div>
+<script type="text/javascript">
+    var addCOnsole={
+      updated:function () {
+        console.log("数据变成了"+this.num)
+      }
+    }
+    var app=new Vue({
+      el:'#app',
+      data:{
+        num:1
+      },
+      methods:{
+        add:function () {
+          this.num++
+        }
+      },
+      mixins:[addCOnsole]
+      // 混入的比原生的提前执行
+      // 全局的比混入的先执行
+    })
+</script>
+</body>
+</html>

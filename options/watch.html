@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>watch</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Watch 选项监控数据</h1>
+<hr>
+<div id="app">
+    <p>今日温度：{{temperature}}℃</p>
+    <p>穿衣建议：{{clothes}}</p>
+    <p>
+        <button @click="add">add</button>
+        <button @click="reduce">reduce</button>
+    </p>
+</div>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      temperature: 14,
+      clothes: '夹克长裙'
+    },
+    methods: {
+      add: function () {
+        this.temperature += 5;
+      },
+      reduce: function () {
+        this.temperature -= 5;
+      }
+    },
+    // watch: {
+    //   temperature: function (val, oldVal) {
+    //     if (val >= 26) {
+    //       this.clothes = "T恤短裤"
+    //     } else if (val < 26 && val > 0) {
+    //       this.clothes = "夹克长裙"
+    //     } else {
+    //       this.clothes = "棉衣"
+    //     }
+    //   }
+    // }
+  });
+  // 第二种方法，实例方法
+  app.$watch('temperature',function (val,newVal) {
+    if (val >= 26) {
+      this.clothes = "T恤短裤"
+    } else if (val < 26 && val > 0) {
+      this.clothes = "夹克长裙"
+    } else {
+      this.clothes = "棉衣"
+    }
+  })
+</script>
+</body>
+</html>

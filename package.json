@@ -4,7 +4,7 @@
   "description": "vue demo",
   "main": "index.js",
   "directories": {
-    "example": "example"
+    "GlobalAPI": "GlobalAPI"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
