@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>slot content extend Demo</h1>
+<hr>
+<div id="app">
+    <whisper>
+        <span slot="githubUrl">{{whisperInfo.githubUrl}}</span>
+        <span slot="skill">{{whisperInfo.skill}}</span>
+    </whisper>
+</div>
+<template id="step">
+    <div>
+        <p>Github地址：<slot name="githubUrl"></slot></p>
+        <p>职业技能：<slot name="skill"></slot></p>
+    </div>
+</template>
+<script>
+    var whisper={
+      template:'#step'
+    }
+    var app=new Vue({
+      el:'#app',
+      data:{
+        whisperInfo:{
+          githubUrl:'https://github.com/whi-sper',
+          skill:'web前端',
+        }
+      },
+      components: {
+        'whisper':whisper
+      }
+    })
+</script>
+</body>
+</html>
